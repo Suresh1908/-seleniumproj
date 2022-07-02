@@ -18,7 +18,7 @@ public class Steps {
 	
 	@Given("^User launch Chrome browser$")
 	public void user_launch_Chrome_browser() throws Throwable {
-	    System.setProperty("webdriver.chrome.driver", "D:\\Selenium\\Cucumber\\seleniumproj\\Drivers\\chromedriver.exe");
+	    System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/Drivers/chromedriver.exe");
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--disable-notifications");
 	    driver=new ChromeDriver(options);
@@ -41,8 +41,9 @@ public class Steps {
 	public void click_on_Login() throws Throwable {
 	    
 		lp.clickLogin();
+		Thread.sleep(4000);
 		
-		System.out.println(driver.getTitle());
+		System.out.println(driver.getTitle()+"post log in");
 	}
 
 	@Then("^page title should be \"([^\"]*)\"$")
@@ -56,6 +57,8 @@ public class Steps {
 		
 		else
 			Assert.assertEquals(title, driver.getTitle());
+	
+		driver.close();
 		
 	}
 

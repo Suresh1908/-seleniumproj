@@ -10,7 +10,9 @@ import io.cucumber.junit.CucumberOptions;
 		features = ".//Features/Login.feature",
 		glue = "stepDefinitions",
 		dryRun = false,
-		plugin = { "pretty","html:target/cucumber-reports" },
+		plugin = { 
+				"pretty","html:target/cucumber.html"
+				},
 		monochrome = true
 		
 		)
